@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tab 사이트 예제</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <!-- 전체 -->
+    <div class="container">
+      <h1 id="heading">에디오피아 게뎁</h1>
+      <!-- 상품 영역 -->
+      <div class="product">
+        <!-- 왼쪽 이미지 영역 -->
+        <div class="prod-pic">
+          <img src="images/coffee-pink.jpg" alt="에디오피아 게뎁" id="cup" />
+          <div id="small-pic">
+            <img
+              src="images/coffee-pink.jpg"
+              class="small selected"
+              alt="에디오피아 게뎁"
+              data-name="에디오피아 게뎁"
+              data-price="9,000원"
+              data-delivery="3,000원 (50,000원 이상 구매시 무료)"
+              data-points="180원(2%)"
+              data-roasting="2024.06.17"
+              data-origin="에디오피아"
+              data-region="이르가체프 코체레"
+              data-farm="게뎁"
+              data-altitude="1,950 ~ 2,000 m"
+              data-variety="지역 토착종"
+              data-process="워시드"
+              data-flavornote="은은하고 다채로운 꽃향, 망고, 다크 체리, 달달함이 입안 가득."
+              data-description="게뎁농장은 유기농 인증 농장으로 여성의 고용 창출과 지역사회 발전에 기여하며 3대째 이어져 내려오는 오랜 역사를 가진 농장입니다. 게뎁 농장은 SCAA 인증을 받은 커피 품질관리 실험실을 갖추고 있어 철처한 관리를 통해 스페셜티커피를 생산합니다."
+            />
+            <img
+              src="images/coffee-blue.jpg"
+              class="small"
+              data-name="콜롬비아 수프리모"
+              data-price="8,000원"
+              data-delivery="2,500원 (50,000원 이상 구매시 무료)"
+              data-points="160원(2%)"
+              data-roasting="2024.07.01"
+              data-origin="콜롬비아"
+              data-region="메델린"
+              data-farm="수프리모"
+              data-altitude="1,600 ~ 1,800 m"
+              data-variety="카투라"
+              data-process="워시드"
+              data-flavornote="진한 초콜릿 향과 풍부한 바디감."
+              data-description="수프리모 농장 설명..."
+            />
+            <img
+              src="images/coffee-gray.jpg"
+              class="small"
+              data-name="케냐 AA"
+              data-price="10,000원"
+              data-delivery="3,500원 (50,000원 이상 구매시 무료)"
+              data-points="200원(2%)"
+              data-roasting="2024.07.10"
+              data-origin="케냐"
+              data-region="니에리"
+              data-farm="AA"
+              data-altitude="1,700 ~ 1,900 m"
+              data-variety="SL28, SL34"
+              data-process="워시드"
+              data-flavornote="과일향, 체리, 달달함"
+              data-description="케냐 농장 설명..."
+            />
+          </div>
+        </div>
+        <!-- 오른쪽 설명 명역 -->
+        <div id="desc">
+          <ul>
+            <li id="desc-name">상품명 : 에디오피아 게뎁</li>
+            <li id="desc-price" class="bluetext">판매가 : 9,000원</li>
+            <li id="desc-delivery">
+              배송비 : 3,000원 (50,000원 이상 구매 시 무료)
+            </li>
+            <li id="desc-points">적립금 : 180원(2%)</li>
+            <li id="desc-roasting">로스팅 : 2024.06.17</li>
+            <li style="margin-top: 10px">
+              <button id="desc-btn" type="button">장바구니 담기</button>
+            </li>
+          </ul>
+          <!-- 장바구니 영역 -->
+          <div id="cart"><strong>🛒 장바구니</strong></div>
+          <p id="total">총 합계 : 0원</p>
+          <a href="#" id="view">상세 설명 보기</a>
+        </div>
+      </div>
+
+      <!-- 상세보기 -->
+      <div id="detail">
+        <hr />
+        <h2>상품 상세 정보</h2>
+        <ul>
+          <li id="detail-origin">원산지 : 에디오피아</li>
+          <li id="detail-region">지 역 : 이르가체프 코체레</li>
+          <li id="detail-farm">농 장 : 게뎁</li>
+          <li id="detail-altitude">고 도 : 1,950 ~ 2,000 m</li>
+          <li id="detail-variety">품 종 : 지역 토착종</li>
+          <li id="detail-process">가공법 : 워시드</li>
+        </ul>
+        <h3>Information</h3>
+        <p id="detail-description">게뎁 농장 설명...</p>
+        <h3>Flavor Note</h3>
+        <p id="flavor-note">
+          은은하고 다채로운 꽃향, 망고, 다크 체리, 달달함이 입안 가득.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
