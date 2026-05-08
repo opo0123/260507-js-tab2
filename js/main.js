@@ -22,6 +22,12 @@ window.addEventListener("load", () => {
   const detailDescription = document.getElementById("detail-description");
   const flavorNote = document.getElementById("flavor-note");
 
+  // 장바구니 관련
+  const addBtn = document.getElementById("desc-btn");
+  const cartBox = document.getElementById("cart");
+  const totalBox = document.getElementById("total");
+  const cartCount = document.getElementById("cart-count");
+
   // 작은 이미지 클릭 시, 정보 변경 (selected 토글 포함)
   smallPic.forEach((small) => {
     small.addEventListener("click", () => {
@@ -42,6 +48,9 @@ window.addEventListener("load", () => {
 
     // 큰 이미지 변경 (재할당)
     cup.src = el.src;
+
+    const price = Number(el.dataset.price.replace(/[^0-9]/g, ""));
+
     // 내용 변경
     descName.textContent = `상품명 : ${el.dataset.name}`;
     descPrice.textContent = `판매가 : ${el.dataset.price}`;
@@ -58,7 +67,15 @@ window.addEventListener("load", () => {
     detailProcess.textContent = `가공법  : ${el.dataset.process}`;
     detailDescription.textContent = `${el.dataset.description}`;
     flavorNote.textContent = `${el.dataset.flavornote}`;
+
+    // 버튼 데이터 저장
+    addBtn.dataset.name = el.dataset.name;
+    addBtn.dataset.price = price;
   }
+
+  // 첫 화면 상품 (기본 설정)
+  smallPic[0].classList.add("selected");
+  changePic(smallPic[0]);
 
   // 상세보기
   // 상세 설명 보기 클릭 시
@@ -66,4 +83,49 @@ window.addEventListener("load", () => {
     // block이면 none으로, 아니면 block ( = toggle)
     detail.style.display = detail.style.display === "block" ? "none" : "block";
   });
+
+  // 장바구니
+  // 데이터
+  let cartItems = {};
+  // 장바구니 담기
+  addBtn.addEventListener("click", () => {
+    const name = addBtn.dataset.name;
+    const price = Number(addBtn.dataset.price);
+    // console.log(price);
+
+    // 장바구니 추가
+    if (!cartItems[name]) {
+      cartItems[name] = {
+        price: price,
+        quantity: 1,
+      };
+    } else {
+      cartItems[name].quantity++;
+    }
+
+    // 장바구니 박스 업데이트 (실행 위치)
+    updateCart();
+  });
+  // 장바구니 박스 업데이트 기능
+  function updateCart() {
+    cartBox.innerHTML = `<strong>🛒 장바구니</strong>`;
+    let totalPrice = 0;
+    let totalCount = 0;
+
+    for (let key in cartItems) {
+      const item = cartItems[key];
+      totalPrice += item.price * item.quantity;
+      totalCount += item.quantity;
+
+      const p = document.createElement("p");
+      p.textContent = `${key} - ${item.price.toLocaleString()}원 X ${item.quantity}`;
+      cartBox.appendChild(p);
+    }
+
+    // 총합
+    totalBox.textContent = `총 합계 : ${totalPrice.toLocaleString()}원`;
+    cartCount.textContent = totalCount;
+    // console.log(totalPrice);
+    // console.log(totalCount);
+  }
 });
